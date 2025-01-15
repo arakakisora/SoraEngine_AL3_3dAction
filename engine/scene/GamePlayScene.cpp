@@ -27,9 +27,9 @@ void GamePlayScene::Initialize()
 	//モデルの読み込み
 	ModelManager::GetInstans()->LoadModel("axis.obj");
 
-	object3D = new Object3D();
-	object3D->Initialize(Object3DCommon::GetInstance());
-	object3D->SetModel("axis.obj");
+	playerObject = new Object3D();
+	playerObject->Initialize(Object3DCommon::GetInstance());
+	playerObject->SetModel("axis.obj");
 
 	
 	
@@ -41,7 +41,7 @@ void GamePlayScene::Finalize()
 
 	delete camera1;
 	delete camera2;
-	delete object3D;
+	delete playerObject;
 
 	CameraManager::GetInstans()->Finalize();
 
@@ -53,7 +53,7 @@ void GamePlayScene::Update()
 {
 	//カメラの更新
 	CameraManager::GetInstans()->GetActiveCamera()->Update();
-	object3D->Update();
+	playerObject->Update();
 
 	
 
@@ -95,7 +95,7 @@ void GamePlayScene::Draw()
 
 	//3dオブジェクトの描画準備。3Dオブジェクトの描画に共通のグラフィックスコマンドを積む
 	Object3DCommon::GetInstance()->CommonDraw();
-	object3D->Draw();
+	playerObject->Draw();
 
 
 #pragma endregion
