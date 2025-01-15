@@ -26,10 +26,11 @@ void GamePlayScene::Initialize()
 
 	//モデルの読み込み
 	ModelManager::GetInstans()->LoadModel("axis.obj");
+	ModelManager::GetInstans()->LoadModel("cube.obj");
 
-	playerObject = new Object3D();
-	playerObject->Initialize(Object3DCommon::GetInstance());
-	playerObject->SetModel("axis.obj");
+	object3D = new Object3D();
+	object3D->Initialize(Object3DCommon::GetInstance());
+	object3D->SetModel("cube.obj");
 
 	
 	
