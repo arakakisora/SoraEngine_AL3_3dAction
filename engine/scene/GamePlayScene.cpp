@@ -28,9 +28,9 @@ void GamePlayScene::Initialize()
 	ModelManager::GetInstans()->LoadModel("axis.obj");
 	ModelManager::GetInstans()->LoadModel("cube.obj");
 
-	object3D = new Object3D();
-	object3D->Initialize(Object3DCommon::GetInstance());
-	object3D->SetModel("cube.obj");
+	playerObject =std::make_unique<Object3D>();
+	playerObject->Initialize(Object3DCommon::GetInstance());
+	playerObject->SetModel("cube.obj");
 
 	
 	
@@ -42,7 +42,7 @@ void GamePlayScene::Finalize()
 
 	delete camera1;
 	delete camera2;
-	delete playerObject;
+	
 
 	CameraManager::GetInstans()->Finalize();
 

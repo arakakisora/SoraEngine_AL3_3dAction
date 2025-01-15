@@ -8,6 +8,7 @@
 #include "BaseScene.h"
 
 #include "SceneManager.h"
+#include<memory>
 
 
 class GamePlayScene :public BaseScene
@@ -34,7 +35,8 @@ public:
 private:
 	Camera* camera1 = nullptr;
 	Camera* camera2 = nullptr;
-	Object3D* playerObject=nullptr;
+
+	std::unique_ptr<Object3D> playerObject;
 
 	
 
